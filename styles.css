@@ -53,3 +53,95 @@ h1, h2 {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+#skills {
+    padding: 20px;
+    margin: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skill-name {
+    font-weight: bold;
+}
+
+.progress {
+    background: #ddd;
+    height: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.progress::after {
+    content: attr(data-percent);
+    background: #4caf50;
+    height: 100%;
+    width: attr(data-percent);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#contact-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background: #45a049;
+}
