@@ -1,147 +1,207 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Theme Transitions */
+    --transition-base: 0.3s ease-in-out;
+    --transition-colors: background-color var(--transition-base),
+                    color var(--transition-base),
+                    border-color var(--transition-base);
+    --transition-transform: transform var(--transition-base);
+    
+    /* Form Elements */
+    --input-bg: var(--bg-primary);
+    --input-border: var(--text-secondary);
+    --input-focus: var(--accent-primary);
+    --input-radius: 8px;
+    --input-padding: 12px;
+    
+    /* Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #333333;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-primary: #4CAF50;
+    --accent-secondary: #45a049;
+    
+    /* Spacing */
+    --section-spacing: 4rem;
+    --content-spacing: 2rem;
+    --element-spacing: 1rem;
+    
+    /* Container */
+    --container-width: 1200px;
+    --container-padding: 2rem;
+    
+    /* Social Media Colors */
+    --color-github: #171515;
+    --color-linkedin: #0077B5;
+    --color-twitter: #1DA1F2;
+    --color-stackoverflow: #F48024;
+    --color-mastodon: #6364FF;
+}
+
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    transition: var(--transition-colors);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: var(--content-spacing) 0;
     text-align: center;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    gap: var(--element-spacing);
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-primary);
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--input-radius);
+    transition: var(--transition-colors);
 }
 
-section {
-    padding: 20px;
-    margin: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
 }
 
-h1, h2 {
-    animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* Project Cards */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    gap: var(--content-spacing);
+    padding: var(--section-spacing) 0;
 }
 
 .project-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
+    background: var(--bg-primary);
+    padding: var(--content-spacing);
+    border-radius: var(--input-radius);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: var(--transition-transform);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
 }
 
-#skills {
-    padding: 20px;
-    margin: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.skill-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.skill-name {
-    font-weight: bold;
-}
-
-.progress {
-    background: #ddd;
-    height: 10px;
-    width: 100%;
-    position: relative;
-}
-
-.progress::after {
-    content: attr(data-percent);
-    background: #4caf50;
-    height: 100%;
-    width: attr(data-percent);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    margin: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Form Styling */
 #contact-form input,
 #contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     width: 100%;
-    box-sizing: border-box;
+    padding: var(--input-padding);
+    margin-bottom: var(--element-spacing);
+    border: 1px solid var(--input-border);
+    border-radius: var(--input-radius);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: var(--transition-colors);
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
 #contact-form button {
-    padding: 10px;
+    padding: var(--input-padding) calc(var(--input-padding) * 2);
+    background: var(--accent-primary);
+    color: white;
     border: none;
-    border-radius: 4px;
-    background: #4caf50;
-    color: #fff;
+    border-radius: var(--input-radius);
     cursor: pointer;
+    transition: var(--transition-colors);
 }
 
 #contact-form button:hover {
-    background: #45a049;
+    background: var(--accent-secondary);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: var(--content-spacing) 0;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    margin-top: var(--section-spacing);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--element-spacing);
+    margin: var(--content-spacing) 0;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition-transform);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    :root {
+        --section-spacing: 3rem;
+        --content-spacing: 1.5rem;
+        --container-padding: 1rem;
+    }
+
+    .container {
+        padding: 0 var(--container-padding);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #contact-form {
+        padding: var(--content-spacing);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --section-spacing: 2rem;
+        --content-spacing: 1rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+    }
 }
