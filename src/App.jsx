@@ -16,8 +16,8 @@ function App() {
         <Skills />
         <Contact />
       </main>
-      <footer className="bg-gray-100 dark:bg-gray-800 py-6">
-        <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
+      <footer className="bg-purple-50 dark:bg-purple-800 py-6">
+        <div className="container mx-auto px-4 text-center text-black dark:text-purple-300">
           {new Date().getFullYear()} Anmol Sharma. All rights reserved.
         </div>
       </footer>
